@@ -2,7 +2,7 @@ package edu.ycp.cs320.hobbyhub.shared;
 
 public class User {
 	private String userName;
-	
+		
 	public User() {
 		
 	}
