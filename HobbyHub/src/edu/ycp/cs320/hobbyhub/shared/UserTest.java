@@ -44,6 +44,18 @@ public class UserTest {
 	
 	
 
+	//User First Name
+	@Test
+	public void testGetUserFirstName(){
+		tester.setFirstName("Name");
+		assertEquals("Name", "Name", tester.getFirstName());
+	}
+	
+	//User Last Name
+	@Test
+	public void testGetUserLastName(){
+		tester.setLastName("Name");
+		assertEquals("Name", "Name", tester.getLastName());
 
-
+	}
 }
