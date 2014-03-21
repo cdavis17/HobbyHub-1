@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+
 public class HobbyTest {
 	
 	Hobby tester = new Hobby();
@@ -19,7 +20,7 @@ public class HobbyTest {
 	@Test
 	public void testHobbyDescription(){
 		tester.setDescription("Doing stuff");
-		assertEquals("Doing stuff", "Doing Stuff", tester.getDescription());
+		assertEquals("Doing stuff", "Doing stuff", tester.getDescription());
 	}
 	
 	//Long Hobby Description

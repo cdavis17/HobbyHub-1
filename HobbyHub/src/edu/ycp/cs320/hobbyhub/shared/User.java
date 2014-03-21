@@ -79,7 +79,7 @@ public class User {
 		return lastName;
 	}
 	
-	// Set/Get hobbiess
+	// Set/Get hobbies
 	public void setHobbies(ArrayList<Hobby> hobbies){
 		this.hobbies = hobbies;
 	}
