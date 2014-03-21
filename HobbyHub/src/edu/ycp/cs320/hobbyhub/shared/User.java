@@ -1,5 +1,7 @@
 package edu.ycp.cs320.hobbyhub.shared;
 
+import java.util.ArrayList;
+
 public class User {
 	private String userName;
 	private String locationCity;
@@ -8,6 +10,7 @@ public class User {
 	private String userEmail;
 	private String firstName;
 	private String lastName;
+	private ArrayList <Hobby> hobbies;
 	
 	public User() {
 		// This is the constructor
@@ -75,4 +78,19 @@ public class User {
 	public String getLastName(){
 		return lastName;
 	}
+	
+	// Set/Get hobbiess
+	public void setHobbies(ArrayList<Hobby> hobbies){
+		this.hobbies = hobbies;
+	}
+	
+	public ArrayList<Hobby> getHobbies(ArrayList<Hobby> hobbies){
+		return hobbies;
+	}
+	
+	// Add Hobby
+	public void addHobby(ArrayList<Hobby> hobbies, Hobby hobby){
+		hobbies.add(hobby);
+	}
+	
 }
