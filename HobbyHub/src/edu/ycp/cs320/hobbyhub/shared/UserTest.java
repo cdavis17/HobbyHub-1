@@ -1,7 +1,6 @@
 package edu.ycp.cs320.hobbyhub.shared;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class UserTest {
@@ -43,5 +42,8 @@ public class UserTest {
 		assertEquals("Password","Password", tester.getPassword());
 	}
 	
+	
+
+
 
 }
