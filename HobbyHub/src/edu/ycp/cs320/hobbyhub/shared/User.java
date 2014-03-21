@@ -11,6 +11,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private ArrayList <Hobby> hobbies;
+	private ArrayList <Message> messages;
 	
 	public User() {
 		// This is the constructor
