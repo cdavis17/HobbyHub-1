@@ -94,4 +94,18 @@ public class User {
 		hobbies.add(hobby);
 	}
 	
+	// Setter and Getter for Message
+	public void setMessage(ArrayList<Message> message){
+		this.messages = message;
+	}
+	
+	public ArrayList<Message> messages(ArrayList<Message> messages){
+		return messages;
+	}
+	
+	// Add Hobby
+	public void addMessage(ArrayList<Message> Mesages, Message message){
+		Mesages.add(message);
+	}
+	
 }
