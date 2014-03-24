@@ -11,6 +11,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private ArrayList <Hobby> hobbies;
+	private ArrayList <Message> messages;
 	
 	public User() {
 		// This is the constructor
@@ -25,7 +26,6 @@ public class User {
 		return userName;
 	}
 	
-	
 	// Set/Get Users City
 	public void setLocationCity(String locationCity){
 		this.locationCity = locationCity;
@@ -34,7 +34,6 @@ public class User {
 		return locationCity;
 	}
 	
-	
 	// Set/Get Users State
 	public void setLocationState(String locationState){
 		this.locationState = locationState;
@@ -42,7 +41,6 @@ public class User {
 	public String getLocationState(){
 		return locationState;
 	}
-	
 	
 	// Set/Get User password
 	public void setPassword(String password){
