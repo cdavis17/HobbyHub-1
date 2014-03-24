@@ -100,9 +100,9 @@ public class User {
 		return messages;
 	}
 	
-	// Add Hobby
-	public void addMessage(ArrayList<Message> Mesages, Message message){
-		Mesages.add(message);
+	// Add Message
+	public void addMessage(ArrayList<Message> Messages, Message message){
+		Messages.add(message);
 	}
 	
 }
