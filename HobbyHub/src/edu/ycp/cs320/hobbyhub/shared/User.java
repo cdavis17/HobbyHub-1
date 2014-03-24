@@ -11,7 +11,6 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private ArrayList <Hobby> hobbies;
-	private ArrayList <Message> messages;
 	
 	public User() {
 		// This is the constructor
@@ -80,7 +79,7 @@ public class User {
 		return lastName;
 	}
 	
-	// Set/Get hobbiess
+	// Set/Get hobbies
 	public void setHobbies(ArrayList<Hobby> hobbies){
 		this.hobbies = hobbies;
 	}
