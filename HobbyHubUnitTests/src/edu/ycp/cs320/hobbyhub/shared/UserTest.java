@@ -13,15 +13,22 @@ public class UserTest {
 	
 	User tester;
 	ArrayList<Hobby> HobbyTest;
+	ArrayList<Hobby> HobbyTest2;
 	Hobby Football;
+	Hobby Basketball;
 	
 	@Before
 	public void setUp() {
 		tester = new User();
 		HobbyTest = new ArrayList<Hobby>();
+		HobbyTest2 = new ArrayList<Hobby>();
 		Hobby Football = new Hobby();
 		Football.setName("Football");
 		HobbyTest.add(Football);
+		Hobby Basketball = new Hobby();
+		Basketball.setName("Basketball");
+		HobbyTest2.add(Football);
+		HobbyTest2.add(Basketball);
 	}
 	
 
@@ -73,5 +80,19 @@ public class UserTest {
 	public void testGetUserLastName(){
 		tester.setLastName("Name");
 		assertEquals("Name", "Name", tester.getLastName());
+	}
+	
+	//Hobby
+	@Test
+	public void testGetHobbies(){
+		tester.setHobbies(HobbyTest);
+		assertEquals("Football", HobbyTest, tester.getHobbies());
+	}
+	
+	@Test
+	public void testAddHobbies(){
+		tester.setHobbies(HobbyTest);
+		tester.addHobby(Basketball);
+		assertEquals("Football"+"BasketBall", HobbyTest2, tester.getHobbies());
 	}
 }

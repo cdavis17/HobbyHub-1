@@ -82,13 +82,13 @@ public class User {
 		this.hobbies = hobbies;
 	}
 	
-	public ArrayList<Hobby> getHobbies(ArrayList<Hobby> hobbies){
+	public ArrayList<Hobby> getHobbies(){
 		return hobbies;
 	}
 	
 	// Add Hobby
-	public void addHobby(ArrayList<Hobby> hobbies, Hobby hobby){
-		hobbies.add(hobby);
+	public void addHobby(Hobby hobby){
+		this.hobbies.add(hobby);
 	}
 	
 	// Setter and Getter for Message
@@ -96,13 +96,13 @@ public class User {
 		this.messages = message;
 	}
 	
-	public ArrayList<Message> messages(ArrayList<Message> messages){
+	public ArrayList<Message> getMessages(){
 		return messages;
 	}
 	
 	// Add Message
-	public void addMessage(ArrayList<Message> Messages, Message message){
-		Messages.add(message);
+	public void addMessage(Message message){
+		this.messages.add(message);
 	}
 	
 }
