@@ -16,6 +16,10 @@ public class UserTest {
 	ArrayList<Hobby> HobbyTest2;
 	Hobby Football;
 	Hobby Basketball;
+	Message message;
+	Message message2;
+	ArrayList<Message> inbox;
+	ArrayList<Message> empty;
 	
 	@Before
 	public void setUp() {
@@ -23,12 +27,13 @@ public class UserTest {
 		HobbyTest = new ArrayList<Hobby>();
 		HobbyTest2 = new ArrayList<Hobby>();
 		Hobby Football = new Hobby();
+		inbox = new ArrayList<Message>();
+		empty = new ArrayList<Message>();
 		Football.setName("Football");
 		HobbyTest.add(Football);
 		Hobby Basketball = new Hobby();
 		Basketball.setName("Basketball");
-		HobbyTest2.add(Football);
-		HobbyTest2.add(Basketball);
+		inbox.add(message);
 	}
 	
 
@@ -91,8 +96,22 @@ public class UserTest {
 	
 	@Test
 	public void testAddHobbies(){
-		tester.setHobbies(HobbyTest);
+		tester.setHobbies(HobbyTest2);
 		tester.addHobby(Basketball);
-		assertEquals("Football"+"BasketBall", HobbyTest2, tester.getHobbies());
+		assertEquals("BasketBall", HobbyTest2, tester.getHobbies());
+	}
+	
+	//Message
+	@Test
+	public void testGetMessages(){
+		tester.setMessage(inbox);
+		assertEquals("message", inbox, tester.getMessages());
+	}
+	
+	@Test
+	public void testAddMessages(){
+		tester.setMessage(empty);
+		tester.addMessage(message2);
+		assertEquals("message2", empty, tester.getMessages());
 	}
 }
