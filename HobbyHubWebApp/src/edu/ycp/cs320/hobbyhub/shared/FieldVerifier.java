@@ -33,10 +33,39 @@ public class FieldVerifier {
 	 * @param name the name to validate
 	 * @return true if valid, false if invalid
 	 */
-	public static boolean isValidName(String name) {
-		if (name == null) {
-			return false;
+	public static boolean isValidPassword(String password) {
+		// Create an array of characters based on the password
+		char[] pass = new char[password.length()];
+		pass = password.toCharArray();
+		boolean letter = false;
+		boolean number = false;
+	
+		// check to make sure it contains at least 1 number and letter
+		// return false if it doesn't, else return true
+		// put password into an array, compare each index to numbers
+		for(int i = 0; i < pass.length; i++){
+			if (pass[i] == '0' || pass[i] == '1' || pass[i] == '2'  ||  pass[i] == '3' || pass[i] == '4' 
+					|| pass[i] == '5' || pass[i] == '6' || pass[i] == '7' || pass[i] == '8' || pass[i] == '9') {
+				number = true;
+			} 
+			if (pass[i] == 'A' || pass[i] == 'B' || pass[i] == 'C'  ||  pass[i] == 'D' || pass[i] == 'E' 
+					|| pass[i] == 'F' || pass[i] == 'G' || pass[i] == 'H' || pass[i] == 'I' || pass[i] == 'J' || pass[i] == 'K' 
+					|| pass[i] == 'L' || pass[i] == 'M'  ||  pass[i] == 'N' || pass[i] == 'O' || pass[i] == 'P' 
+					|| pass[i] == 'Q' || pass[i] == 'R' || pass[i] == 'S' || pass[i] == 'T' || pass[i] == 'U' || pass[i] == 'V' 
+					|| pass[i] == 'W' || pass[i] == 'X' || pass[i] == 'Y' || pass[i] == 'Z') {
+				letter = true;
+			}
+			if (pass[i] == 'a' || pass[i] == 'b' || pass[i] == 'c'  ||  pass[i] == 'd' || pass[i] == 'e' 
+					|| pass[i] == 'f' || pass[i] == 'g' || pass[i] == 'h' || pass[i] == 'i' || pass[i] == 'j' || pass[i] == 'k' 
+					|| pass[i] == 'l' || pass[i] == 'm'  ||  pass[i] == 'n' || pass[i] == 'o' || pass[i] == 'P' 
+					|| pass[i] == 'q' || pass[i] == 'r' || pass[i] == 's' || pass[i] == 't' || pass[i] == 'u' || pass[i] == 'v' 
+					|| pass[i] == 'w' || pass[i] == 'x' || pass[i] == 'y' || pass[i] == 'z') {
+				letter = true;
+			}
 		}
-		return name.length() > 3;
+		if(number == true && letter == true && password.length() > 5 == true){
+			return true;
+		}
+		return false;
 	}
 }
