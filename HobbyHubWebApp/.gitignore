@@ -1,5 +1,7 @@
 /war/WEB-INF/classes
 /war/WEB-INF/lib
+/war/WEB-INF/deploy
+/war/hobbyhubwebapp
 /gwt-unitCache
 /test-classes
 /.gwt
