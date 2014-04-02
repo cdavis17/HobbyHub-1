@@ -17,4 +17,20 @@ public interface IDatabase {
 	 *         such username/password combination
 	 */
 	public User login(String username, String password);
+	
+	/**
+	 * Attempt to add an acount to database
+	 * 
+	 * @param user the user
+	 */
+	public void addAccount(User user);
+	
+	/**
+	 * 
+	 * Checks to see if the account already exists
+	 * 
+	 * @param username the username
+	 * @return true if account exists, false otherwise
+	 */
+	public boolean checkExistence(String username);
 }

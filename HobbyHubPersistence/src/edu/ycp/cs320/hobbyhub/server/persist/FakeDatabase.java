@@ -35,4 +35,19 @@ public class FakeDatabase implements IDatabase {
 		return null;
 	}
 
+	@Override
+	public void addAccount(User user) {
+		userList.add(user);
+	}
+
+	@Override
+	public boolean checkExistence(String username) {
+		for (User user : userList) {
+			if (user.getUserName().equals(username)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

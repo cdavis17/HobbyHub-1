@@ -1,14 +1,16 @@
 package edu.ycp.cs320.hobbyhub.server.controllers;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import edu.ycp.cs320.hobbyhub.server.persist.DatabaseProvider;
 import edu.ycp.cs320.hobbyhub.server.persist.FakeDatabase;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
-public class LoginControllerTest {
+public class CheckExistanceControllerTest {
 	@Before
 	public void setUp() {
 		// All unit tests are run with the FakeDatabase as the implementation of IDatabase
@@ -16,14 +18,12 @@ public class LoginControllerTest {
 	}
 	
 	@Test
-	public void testSuccessfulLogin() {
+	public void testCheckExistence() {
 		LoginController controller = new LoginController();
 		
 		User user = controller.login("jsmith", "abc123");
 		assertNotNull(user);
 		assertEquals("Joe", user.getFirstName());
-		assertEquals("Smith", user.getLastName());
-		assertEquals("abc123", user.getPassword());
 		// etc.
 	}
 }

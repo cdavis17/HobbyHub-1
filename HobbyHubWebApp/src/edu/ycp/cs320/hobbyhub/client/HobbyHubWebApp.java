@@ -3,6 +3,7 @@ package edu.ycp.cs320.hobbyhub.client;
 import edu.ycp.cs320.hobbyhub.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -39,22 +40,29 @@ public class HobbyHubWebApp implements EntryPoint {
 	 * This is the entry point method.
 	 */
 	public void onModuleLoad() {
-		final Button sendButton = new Button("Send");
+		final Button signUpButton = new Button("Sign Up");
 		final TextBox nameField = new TextBox();
 		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
 
 		// We can add style names to widgets
-		sendButton.addStyleName("sendButton");
+		signUpButton.addStyleName("Sign Up");
 
 		// Add the nameField and sendButton to the RootPanel
 		// Use RootPanel.get() to get the entire body element
+		RootPanel.get("nameFieldContainer").add(nameField);
+		RootPanel.get("signUpButtonContainer").add(signUpButton, 287, 53);
+
 		RootPanel rootPanel = RootPanel.get("nameFieldContainer");
 		rootPanel.add(nameField, 10, 10);
-		nameField.setSize("159px", "18px");
-		RootPanel.get("sendButtonContainer").add(sendButton, 113, 46);
+		nameField.getElement().getStyle().setPosition(Position.RELATIVE);
+		//nameField.setSize("159px", "18px");
+		rootPanel.add(signUpButton);
+		signUpButton.getElement().getStyle().setPosition(Position.RELATIVE);
+		//("sendButtonContainer").add(s, 113, 46);
+		
 		RootPanel.get("errorLabelContainer").add(errorLabel);
-
+		errorLabel.getElement().getStyle().setPosition(Position.RELATIVE);
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
 		nameField.selectAll();
@@ -82,8 +90,8 @@ public class HobbyHubWebApp implements EntryPoint {
 		closeButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				dialogBox.hide();
-				sendButton.setEnabled(true);
-				sendButton.setFocus(true);
+				signUpButton.setEnabled(true);
+				signUpButton.setFocus(true);
 			}
 		});
 
@@ -112,13 +120,13 @@ public class HobbyHubWebApp implements EntryPoint {
 				// First, we validate the input.
 				errorLabel.setText("");
 				String textToServer = nameField.getText();
-				if (!FieldVerifier.isValidName(textToServer)) {
+				if (!FieldVerifier.isValidPassword(textToServer)) {
 					errorLabel.setText("Please enter at least four characters");
 					return;
 				}
 
 				// Then, we send the input to the server.
-				sendButton.setEnabled(false);
+				signUpButton.setEnabled(false);
 				textToServerLabel.setText(textToServer);
 				serverResponseLabel.setText("");
 				greetingService.greetServer(textToServer,
@@ -148,7 +156,7 @@ public class HobbyHubWebApp implements EntryPoint {
 
 		// Add a handler to send the name to the server
 		MyHandler handler = new MyHandler();
-		sendButton.addClickHandler(handler);
+		signUpButton.addClickHandler(handler);
 		nameField.addKeyUpHandler(handler);
 	}
 }
