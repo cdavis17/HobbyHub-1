@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
+import edu.ycp.cs320.hobbyhub.server.controllers.AddAccountController;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public class HobbyHubSignUp implements EntryPoint {
@@ -79,10 +80,15 @@ public class HobbyHubSignUp implements EntryPoint {
 		panel.add(NonMatchError, 283, 157);
 		NonMatchError.setVisible(false);
 		
+		final Label EmailError = new Label("Please enter a valid email address.");
+		panel.add(EmailError, 283, 368);
+		EmailError.setVisible(false);
+		
 		Button SignUpButton = new Button("New button");
 		SignUpButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				User newAccount = new User();
+				boolean error = false;
 				
 				//Add User Name
 				if (UserNameField.getText() != null){
@@ -90,6 +96,7 @@ public class HobbyHubSignUp implements EntryPoint {
 					UserNameError.setVisible(false);
 				} else {
 					UserNameError.setVisible(true);
+					error = true;
 				}
 				
 				//Add Password
@@ -99,16 +106,53 @@ public class HobbyHubSignUp implements EntryPoint {
 						newAccount.setPassword(PasswordField.getText());
 					} else {
 						NonMatchError.setVisible(true);
+						error = true;
 					}
 				} else {
 					EmptyPassError.setVisible(true);
+					error = true;
 				}
 				
-				//ToDo: Other Params
+				//City
+				if (CityField.getText() != null){
+					newAccount.setLocationCity(CityField.getText());
+				}
+				
+				//State
+				if (StateField.getText() != null){
+					newAccount.setLocationState(StateField.getText());
+				}
+				
+				//First Name
+				if (FirstNameField.getText() != null){
+					newAccount.setFirstName(FirstNameField.getText());
+				}
+				
+				//Last Name
+				if (LastNameField.getText() != null){
+					newAccount.setLastName(LastNameField.getText());
+				}
+				
+				//Email
+				if (EmailField.getText() != null){
+					newAccount.setUserEmail(EmailField.getText());
+					EmailError.setVisible(false);
+				} else {
+					EmailError.setVisible(true);
+					error = true;
+				}
+				
+				//Add Account to db
+				if (error == false){
+					AddAccountController controller = new AddAccountController();
+					controller.addAccount(newAccount);
+				}
 			}
 		});
 		SignUpButton.setText("Sign Up");
 		panel.add(SignUpButton, 151, 438);
+		
+		
 		
 		
 		
