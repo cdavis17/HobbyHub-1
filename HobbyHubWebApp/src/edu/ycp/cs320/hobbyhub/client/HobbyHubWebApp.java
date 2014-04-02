@@ -3,6 +3,7 @@ package edu.ycp.cs320.hobbyhub.client;
 import edu.ycp.cs320.hobbyhub.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Position;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -50,9 +51,18 @@ public class HobbyHubWebApp implements EntryPoint {
 		// Add the nameField and sendButton to the RootPanel
 		// Use RootPanel.get() to get the entire body element
 		RootPanel.get("nameFieldContainer").add(nameField);
-		RootPanel.get("signUpButtonContainer").add(signUpButton);
-		RootPanel.get("errorLabelContainer").add(errorLabel);
+		RootPanel.get("signUpButtonContainer").add(signUpButton, 287, 53);
 
+		RootPanel rootPanel = RootPanel.get("nameFieldContainer");
+		rootPanel.add(nameField, 10, 10);
+		nameField.getElement().getStyle().setPosition(Position.RELATIVE);
+		//nameField.setSize("159px", "18px");
+		rootPanel.add(signUpButton);
+		signUpButton.getElement().getStyle().setPosition(Position.RELATIVE);
+		//("sendButtonContainer").add(s, 113, 46);
+		
+		RootPanel.get("errorLabelContainer").add(errorLabel);
+		errorLabel.getElement().getStyle().setPosition(Position.RELATIVE);
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
 		nameField.selectAll();
