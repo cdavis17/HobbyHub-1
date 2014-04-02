@@ -67,22 +67,54 @@ public class HobbyHubSignUp implements EntryPoint {
 		Label lblEmailAddress = new Label("Email Address:");
 		panel.add(lblEmailAddress, 10, 368);
 		
+		final Label UserNameError = new Label("Please enter a valid Username.");
+		panel.add(UserNameError, 283, 88);
+		UserNameError.setVisible(false);
+		
+		final Label EmptyPassError = new Label("Please enter a password");
+		panel.add(EmptyPassError, 283, 157);
+		EmptyPassError.setVisible(false);
+		
+		final Label NonMatchError = new Label("Fields must match");
+		panel.add(NonMatchError, 283, 157);
+		NonMatchError.setVisible(false);
+		
 		Button SignUpButton = new Button("New button");
 		SignUpButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
 				User newAccount = new User();
+				
+				//Add User Name
 				if (UserNameField.getText() != null){
 					newAccount.setUserName(UserNameField.getText());
+					UserNameError.setVisible(false);
 				} else {
-					
+					UserNameError.setVisible(true);
 				}
+				
+				//Add Password
+				if (PasswordField.getText() != null && PasswordConfirm.getText() != null){
+					EmptyPassError.setVisible(false);
+					if(PasswordField.getText().equals(PasswordConfirm.getText())){
+						newAccount.setPassword(PasswordField.getText());
+					} else {
+						NonMatchError.setVisible(true);
+					}
+				} else {
+					EmptyPassError.setVisible(true);
+				}
+				
+				//ToDo: Other Params
 			}
 		});
 		SignUpButton.setText("Sign Up");
 		panel.add(SignUpButton, 151, 438);
 		
-		Label UserNameError = new Label("Please enter a valid Username.");
-		panel.add(UserNameError, 283, 88);
+		
+		
+		
+		
+		
 		
 	}
 }
