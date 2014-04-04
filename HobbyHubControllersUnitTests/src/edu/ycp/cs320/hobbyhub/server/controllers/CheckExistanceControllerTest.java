@@ -1,5 +1,6 @@
 package edu.ycp.cs320.hobbyhub.server.controllers;
 
+import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -11,19 +12,37 @@ import edu.ycp.cs320.hobbyhub.server.persist.FakeDatabase;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public class CheckExistanceControllerTest {
+	CheckExistenceController controller = new CheckExistenceController();
+	
+	
 	@Before
 	public void setUp() {
 		// All unit tests are run with the FakeDatabase as the implementation of IDatabase
 		DatabaseProvider.setInstance(new FakeDatabase());
+		
 	}
 	
+	/**
+	 * 
+	 * Tests for the first account we created
+	 * Username should already be in existence
+	 * 
+	 */
 	@Test
-	public void testCheckExistence() {
-		LoginController controller = new LoginController();
+	public void testAlreadyCreatedAccount() {
+		assertTrue(controller.checkExistence("jsmith"));
 		
-		User user = controller.login("jsmith", "abc123");
-		assertNotNull(user);
-		assertEquals("Joe", user.getFirstName());
-		// etc.
+	}
+	
+	/**
+	 * 
+	 * Tests for a non-existent account
+	 * Account will not be in existence
+	 * 
+	 */
+	@Test
+	public void testNotCreatedAccount(){
+		assertFalse(controller.checkExistence("accountdoesnotexist"));
+		
 	}
 }
