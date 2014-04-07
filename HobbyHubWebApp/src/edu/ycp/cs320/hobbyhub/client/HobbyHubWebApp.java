@@ -9,10 +9,12 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.thirdparty.guava.common.collect.Sets.SetView;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -21,7 +23,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
-public class HobbyHubWebApp implements EntryPoint {
+public class HobbyHubWebApp {
+	
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -33,39 +36,30 @@ public class HobbyHubWebApp implements EntryPoint {
 	/**
 	 * Create a remote service proxy to talk to the server-side Greeting service.
 	 */
-	private final GreetingServiceAsync greetingService = GWT
-			.create(GreetingService.class);
 
-	/**
-	 * This is the entry point method.
-	 */
 	public void onModuleLoad() {
 		final Button signUpButton = new Button("Sign Up");
-		final TextBox nameField = new TextBox();
-		nameField.setText("GWT User");
 		final Label errorLabel = new Label();
-
+		final Button returningUserButton = new Button("Returning Users Click Here");
+		
 		// We can add style names to widgets
 		signUpButton.addStyleName("Sign Up");
+		RootPanel.get("signUpButtonContainer").add(signUpButton, 217, 66);
 
-		// Add the nameField and sendButton to the RootPanel
-		// Use RootPanel.get() to get the entire body element
-		RootPanel.get("nameFieldContainer").add(nameField);
-		RootPanel.get("signUpButtonContainer").add(signUpButton, 287, 53);
-
+		returningUserButton.addStyleName("Returning Users Click Here");
+		RootPanel.get("returningUserButtonContainer").add(returningUserButton, 217, 36);
+		
 		RootPanel rootPanel = RootPanel.get("nameFieldContainer");
-		rootPanel.add(nameField, 10, 10);
-		nameField.getElement().getStyle().setPosition(Position.RELATIVE);
 		//nameField.setSize("159px", "18px");
 		rootPanel.add(signUpButton);
 		signUpButton.getElement().getStyle().setPosition(Position.RELATIVE);
 		//("sendButtonContainer").add(s, 113, 46);
 		
 		RootPanel.get("errorLabelContainer").add(errorLabel);
+		
+		Button btnReturnUsersClick = new Button("Return Users: Click Here");
+		rootPanel.add(btnReturnUsersClick, 175, 139);
 		errorLabel.getElement().getStyle().setPosition(Position.RELATIVE);
-		// Focus the cursor on the name field when the app loads
-		nameField.setFocus(true);
-		nameField.selectAll();
 
 		// Create the popup dialog box
 		final DialogBox dialogBox = new DialogBox();
@@ -98,10 +92,11 @@ public class HobbyHubWebApp implements EntryPoint {
 		// Create a handler for the sendButton and nameField
 		class MyHandler implements ClickHandler, KeyUpHandler {
 			/**
-			 * Fired when the user clicks on the sendButton.
+			 * Fired when the user clicks on the signUpButton.
 			 */
 			public void onClick(ClickEvent event) {
-				sendNameToServer();
+				// NEED TO SWITCH VIEW
+				
 			}
 
 			/**
@@ -119,7 +114,7 @@ public class HobbyHubWebApp implements EntryPoint {
 			private void sendNameToServer() {
 				// First, we validate the input.
 				errorLabel.setText("");
-				String textToServer = nameField.getText();
+				String textToServer = signUpButton.getText();
 				if (!FieldVerifier.isValidPassword(textToServer)) {
 					errorLabel.setText("Please enter at least four characters");
 					return;
@@ -129,34 +124,12 @@ public class HobbyHubWebApp implements EntryPoint {
 				signUpButton.setEnabled(false);
 				textToServerLabel.setText(textToServer);
 				serverResponseLabel.setText("");
-				greetingService.greetServer(textToServer,
-						new AsyncCallback<String>() {
-							public void onFailure(Throwable caught) {
-								// Show the RPC error message to the user
-								dialogBox
-										.setText("Remote Procedure Call - Failure");
-								serverResponseLabel
-										.addStyleName("serverResponseLabelError");
-								serverResponseLabel.setHTML(SERVER_ERROR);
-								dialogBox.center();
-								closeButton.setFocus(true);
-							}
-
-							public void onSuccess(String result) {
-								dialogBox.setText("Remote Procedure Call");
-								serverResponseLabel
-										.removeStyleName("serverResponseLabelError");
-								serverResponseLabel.setHTML(result);
-								dialogBox.center();
-								closeButton.setFocus(true);
-							}
-						});
+				
 			}
 		}
 
 		// Add a handler to send the name to the server
 		MyHandler handler = new MyHandler();
 		signUpButton.addClickHandler(handler);
-		nameField.addKeyUpHandler(handler);
 	}
 }

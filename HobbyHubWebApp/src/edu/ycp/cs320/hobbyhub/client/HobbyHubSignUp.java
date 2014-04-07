@@ -1,95 +1,140 @@
 package edu.ycp.cs320.hobbyhub.client;
 
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.user.client.ui.RootPanel;
+
+
+
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.LayoutPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
-import edu.ycp.cs320.hobbyhub.server.controllers.AddAccountController;
+
+
+//import edu.ycp.cs320.hobbyhub.server.controllers.AddAccountController;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
-public class HobbyHubSignUp implements EntryPoint {
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 
-	@Override
-	public void onModuleLoad() {
-		//stuf
-		RootPanel panel = RootPanel.get("Sign Up Container");
+public class HobbyHubSignUp extends Composite {
+	private LayoutPanel mainPanel;
+	private LayoutPanel infomationPanel;
+	
+	/**
+	 * 
+	 *
+	 *
+	 * SIGN UP VIEW CONTAINS BOXES AND LABELS FOR
+	 * USER TO FILL OUT, WHEN THEY CLICK THE SIGN UP
+	 * BUTTON THEY SHOULD BE REVERTED BACK TO THE HOMEPAGE
+	 * WILL NEED RPC CALL TO ADD ACCOUNT TO DATABASE
+	 * 
+	 * 
+	 * 
+	 * 
+	 *
+	 *
+	 *
+	 */
+	
+	public HobbyHubSignUp() {
+		mainPanel = new LayoutPanel();
+		mainPanel.setSize("800px", "800px");
+		initWidget(mainPanel);
 		
-		final TextBox UserNameField = new TextBox();
-		panel.add(UserNameField, 104, 88);
-		
-		final TextBox PasswordField = new TextBox();
-		panel.add(PasswordField, 104, 128);
-		
-		final TextBox PasswordConfirm = new TextBox();
-		panel.add(PasswordConfirm, 104, 168);
-		
-		final TextBox CityField = new TextBox();
-		panel.add(CityField, 104, 248);
-		
-		final TextBox StateField = new TextBox();
-		panel.add(StateField, 104, 208);
-		
-		final TextBox FirstNameField = new TextBox();
-		panel.add(FirstNameField, 104, 288);
-		
-		final TextBox LastNameField = new TextBox();
-		panel.add(LastNameField, 104, 328);
-		
-		final TextBox EmailField = new TextBox();
-		panel.add(EmailField, 104, 368);
+		// Random button
+		Button btnNewButton = new Button("New button");
+		btnNewButton.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+			HobbyHubUI.setCurrentView(new UserView());
+			}
+		});
+		mainPanel.add(btnNewButton);
+		mainPanel.setWidgetLeftWidth(btnNewButton, 445.0, Unit.PX, 81.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(btnNewButton, 337.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblNewLabel = new Label("Username:");
-		panel.add(lblNewLabel, 10, 88);
+		mainPanel.add(lblNewLabel);
+		mainPanel.setWidgetLeftWidth(lblNewLabel, 0.0, Unit.PX, 69.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblNewLabel, 0.0, Unit.PX, 34.0, Unit.PX);
 		lblNewLabel.setSize("69px", "34px");
 		
 		Label lblNewLabel_1 = new Label("Password:");
-		panel.add(lblNewLabel_1, 10, 128);
+		mainPanel.add(lblNewLabel_1);
+		mainPanel.setWidgetLeftWidth(lblNewLabel_1, 109.0, Unit.PX, 69.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblNewLabel_1, 194.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblConfirmPassword = new Label("Confirm Password:");
-		panel.add(lblConfirmPassword, 10, 168);
+		mainPanel.add(lblConfirmPassword);
+		mainPanel.setWidgetLeftWidth(lblConfirmPassword, 109.0, Unit.PX, 88.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblConfirmPassword, 230.0, Unit.PX, 18.0, Unit.PX);
 		lblConfirmPassword.setSize("88px", "18px");
 		
 		Label lblCity = new Label("City:");
-		panel.add(lblCity, 10, 208);
+		mainPanel.add(lblCity);
+		mainPanel.setWidgetLeftWidth(lblCity, 109.0, Unit.PX, 39.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblCity, 313.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblState = new Label("State:");
-		panel.add(lblState, 10, 248);
+		mainPanel.add(lblState);
+		mainPanel.setWidgetLeftWidth(lblState, 109.0, Unit.PX, 69.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblState, 277.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblFirstName = new Label("First Name:");
-		panel.add(lblFirstName, 10, 288);
+		mainPanel.add(lblFirstName);
+		mainPanel.setWidgetLeftWidth(lblFirstName, 86.0, Unit.PX, 180.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblFirstName, 46.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblLastName = new Label("Last Name:");
-		panel.add(lblLastName, 10, 328);
+		mainPanel.add(lblLastName);
+		mainPanel.setWidgetLeftWidth(lblLastName, 109.0, Unit.PX, 125.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblLastName, 82.0, Unit.PX, 30.0, Unit.PX);
 		
 		Label lblEmailAddress = new Label("Email Address:");
-		panel.add(lblEmailAddress, 10, 368);
+		mainPanel.add(lblEmailAddress);
+		mainPanel.setWidgetLeftWidth(lblEmailAddress, 104.0, Unit.PX, 142.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(lblEmailAddress, 118.0, Unit.PX, 30.0, Unit.PX);
 		
 		final Label UserNameError = new Label("Please enter a valid Username.");
-		panel.add(UserNameError, 283, 88);
+		mainPanel.add(UserNameError);
+		mainPanel.setWidgetLeftWidth(UserNameError, 429.0, Unit.PX, 188.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(UserNameError, 118.0, Unit.PX, 30.0, Unit.PX);
 		UserNameError.setVisible(false);
 		
 		final Label EmptyPassError = new Label("Please enter a password");
-		panel.add(EmptyPassError, 283, 157);
+		mainPanel.add(EmptyPassError);
+		mainPanel.setWidgetLeftWidth(EmptyPassError, 472.0, Unit.PX, 200.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(EmptyPassError, 154.0, Unit.PX, 30.0, Unit.PX);
 		EmptyPassError.setVisible(false);
 		
 		final Label NonMatchError = new Label("Fields must match");
-		panel.add(NonMatchError, 283, 157);
+		mainPanel.add(NonMatchError);
+		mainPanel.setWidgetLeftWidth(NonMatchError, 472.0, Unit.PX, 125.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(NonMatchError, 218.0, Unit.PX, 30.0, Unit.PX);
 		NonMatchError.setVisible(false);
 		
 		final Label EmailError = new Label("Please enter a valid email address.");
-		panel.add(EmailError, 283, 368);
+		mainPanel.add(EmailError);
+		mainPanel.setWidgetLeftWidth(EmailError, 404.0, Unit.PX, 234.0, Unit.PX);
+		mainPanel.setWidgetTopHeight(EmailError, 179.0, Unit.PX, 34.0, Unit.PX);
 		EmailError.setVisible(false);
 		
-		Button SignUpButton = new Button("New button");
+		Button SignUpButton = new Button("CLICK");
+		
 		SignUpButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				User newAccount = new User();
-				boolean error = false;
+				GWT.log("Should be setting new USERVIEW");
+				System.out.print("BUTTON CLICKED");
+				HobbyHubUI.setCurrentView(new UserView());
+			}
+			});
+				//User newAccount = new User();
+				//boolean error = false;
 				
+				/*
 				//Add User Name
 				if (UserNameField.getText() != null){
 					newAccount.setUserName(UserNameField.getText());
@@ -144,16 +189,17 @@ public class HobbyHubSignUp implements EntryPoint {
 				
 				//Add Account to db
 				if (error == false){
-					AddAccountController controller = new AddAccountController();
-					controller.addAccount(newAccount);
+					//AddAccountController controller = new AddAccountController();
+					//controller.addAccount(newAccount);
 				}
-			}
-		});
+				*/
+
+			
+		
 		SignUpButton.setText("Sign Up");
-		panel.add(SignUpButton, 151, 438);
+		//mainPanel.add(SignUpButton);
 		
-		
-		
+				
 		
 		
 		
