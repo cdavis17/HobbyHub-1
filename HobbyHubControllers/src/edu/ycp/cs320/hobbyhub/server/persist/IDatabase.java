@@ -16,6 +16,9 @@ public interface IDatabase {
 	 * @return a {@link User} object if successful, or null if there is no
 	 *         such username/password combination
 	 */
+	
+	public User getUser(String username);
+	
 	public User login(String username, String password);
 	
 	/**
@@ -33,4 +36,25 @@ public interface IDatabase {
 	 * @return true if account exists, false otherwise
 	 */
 	public boolean checkExistence(String username);
+	/**
+	 * 
+	 * Verifies the account credentials
+	 * 
+	 * @param usr the username
+	 * @param password password
+	 * @return true if username and password exist, false otherwise
+	 * 
+	 */
+	public boolean verifyAccount(String usr, String password);
+
+	/**
+	 * 
+	 * creates a new account
+	 * 
+	 * @param username
+	 * @param password
+	 * @param email
+	 * need to add more parameters for city, state, etc....
+	 */
+
 }

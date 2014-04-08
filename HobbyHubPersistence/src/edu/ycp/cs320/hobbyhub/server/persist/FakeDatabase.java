@@ -22,7 +22,17 @@ public class FakeDatabase implements IDatabase {
 		
 		userList.add(user1);
 	}
-
+	
+	@Override
+	public User getUser(String username){
+		for(int i = 0; i < userList.size(); i++){
+			if(userList.get(i).getUserName().compareTo(username) == 0){
+				return userList.get(i);
+			}
+		}
+		return null;
+	}
+	
 	@Override
 	public User login(String username, String password) {
 		for (User user : userList) {
@@ -49,5 +59,25 @@ public class FakeDatabase implements IDatabase {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean verifyAccount(String username, String password) {
+		User user = null;
+		if(userList.contains(username)){	//Account exists in the database
+			// set user equal to account
+			user = getUser(username);
+			if(user.getPassword().equals(password)){
+				return true;				
+			} else {
+				System.out.println("Password does not match");
+				return false;
+			}
+		} else { 	
+		System.out.println("No such account: " + username);
+		return false;		
+		}
+	}
+
+	
 
 }
