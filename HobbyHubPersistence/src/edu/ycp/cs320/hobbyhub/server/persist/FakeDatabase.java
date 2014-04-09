@@ -6,21 +6,18 @@ import java.util.List;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public class FakeDatabase implements IDatabase {
-	
-	private List<User> userList;
-	
+	private User user1; // FIRST USER
+	private List<User> userList; // list of USERS
+	private int userID = 1;  // sets index of userID
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		
 		// Create initial user
-		User user1 = new User();
-		user1.setUserName("jsmith");
-		user1.setFirstName("Joe");
-		user1.setLastName("Smith");
-		user1.setPassword("abc123");
+		createAccount("jsmith","abc123", 1, "Joe", "Smith", "jsmith@jsmith.com");
+		
 		// etc.
 		
-		userList.add(user1);
+		//userList.add(user1);
 	}
 	
 	@Override
@@ -76,6 +73,18 @@ public class FakeDatabase implements IDatabase {
 		System.out.println("No such account: " + username);
 		return false;		
 		}
+	}
+
+	public Void createAccount(String username, String password, int userID ,String firstname, String lastname, String email){
+		if(userList.contains(username)){
+			System.out.println("Account already exists");
+		} else {
+			System.out.println("Creating account for user: " + username + ", pass: " + password );
+			User user = new User();
+			userList.add(user);
+			userID++;
+		}
+		return null;
 	}
 
 	

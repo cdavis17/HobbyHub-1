@@ -12,9 +12,19 @@ public class User {
 	private String lastName;
 	private ArrayList <Hobby> hobbies;
 	private ArrayList <Message> messages;
+	private int userID;
 	
 	public User() {
 		// This is the constructor
+
+	}
+	
+	public void setuserID(int id){
+		this.userID = id;
+	}
+	
+	public int getuserID(){
+		return userID;
 	}
 	
 	
