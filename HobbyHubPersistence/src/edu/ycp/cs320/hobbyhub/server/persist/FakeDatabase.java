@@ -12,7 +12,7 @@ public class FakeDatabase implements IDatabase {
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		
-		// Create initial data
+		// Create initial user
 		User user1 = new User();
 		user1.setUserName("jsmith");
 		user1.setFirstName("Joe");
@@ -25,9 +25,9 @@ public class FakeDatabase implements IDatabase {
 	
 	@Override
 	public User getUser(String username){
-		for(int i = 0; i < userList.size(); i++){
-			if(userList.get(i).getUserName().compareTo(username) == 0){
-				return userList.get(i);
+		for (User user : userList) {
+			if (user.getUserName().equals(username)){
+				return user;
 			}
 		}
 		return null;
