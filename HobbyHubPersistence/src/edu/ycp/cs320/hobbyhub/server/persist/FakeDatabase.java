@@ -60,6 +60,7 @@ public class FakeDatabase implements IDatabase {
 	@Override
 	public boolean verifyAccount(String username, String password) {
 		User user = null;
+		/*
 		if(userList.contains(username)){	//Account exists in the database
 			// set user equal to account
 			user = getUser(username);
@@ -73,14 +74,32 @@ public class FakeDatabase implements IDatabase {
 		System.out.println("No such account: " + username);
 		return false;		
 		}
+		*/
+		user = getUser(username);
+		if (user == null) {
+			return false;
+		} else if (!user.getPassword().equals(password)) {
+			System.out.println("Incorrect password for " + username);
+			return false;
+		}
+		return true;
 	}
 
 	public Void createAccount(String username, String password, int userID ,String firstname, String lastname, String email){
-		if(userList.contains(username)){
+		User existing = getUser(username);
+		
+		if(/*userList.contains(username)*/ existing != null){
+			// FIXME
 			System.out.println("Account already exists");
 		} else {
 			System.out.println("Creating account for user: " + username + ", pass: " + password );
 			User user = new User();
+			user.setUserName(username);
+			user.setPassword(password);
+			user.setuserID(userID);
+			user.setFirstName(firstname);
+			user.setLastName(lastname);
+			user.setUserEmail(email);
 			userList.add(user);
 			userID++;
 		}
