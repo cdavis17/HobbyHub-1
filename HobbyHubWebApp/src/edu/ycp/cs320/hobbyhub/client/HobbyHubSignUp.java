@@ -156,7 +156,7 @@ public class HobbyHubSignUp extends Composite {
 					public void onSuccess(Boolean result) {
 						if (result) {
 							// successful login
-							HobbyHubUI.setCurrentView(new UserView());							
+							HobbyHubUI.setCurrentView(new HomeView());							
 						} 
 						else{
 							// unsuccessful login
