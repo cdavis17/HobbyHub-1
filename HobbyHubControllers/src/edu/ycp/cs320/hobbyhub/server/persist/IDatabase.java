@@ -56,5 +56,7 @@ public interface IDatabase {
 	 * @param email
 	 * need to add more parameters for city, state, etc....
 	 */
+	
+	public boolean createAccount(String username, String password, int userID ,String firstname, String lastname, String email);
 
 }

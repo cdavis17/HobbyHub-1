@@ -6,7 +6,6 @@ import java.util.List;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public class FakeDatabase implements IDatabase {
-	private User user1; // FIRST USER
 	private List<User> userList; // list of USERS
 	private int userID = 1;  // sets index of userID
 	public FakeDatabase() {
@@ -60,21 +59,6 @@ public class FakeDatabase implements IDatabase {
 	@Override
 	public boolean verifyAccount(String username, String password) {
 		User user = null;
-		/*
-		if(userList.contains(username)){	//Account exists in the database
-			// set user equal to account
-			user = getUser(username);
-			if(user.getPassword().equals(password)){
-				return true;				
-			} else {
-				System.out.println("Password does not match");
-				return false;
-			}
-		} else { 	
-		System.out.println("No such account: " + username);
-		return false;		
-		}
-		*/
 		user = getUser(username);
 		if (user == null) {
 			return false;
@@ -85,12 +69,13 @@ public class FakeDatabase implements IDatabase {
 		return true;
 	}
 
-	public Void createAccount(String username, String password, int userID ,String firstname, String lastname, String email){
+	public boolean createAccount(String username, String password, int userID ,String firstname, String lastname, String email){
 		User existing = getUser(username);
 		
-		if(/*userList.contains(username)*/ existing != null){
+		if(existing != null){
 			// FIXME
 			System.out.println("Account already exists");
+			return false;
 		} else {
 			System.out.println("Creating account for user: " + username + ", pass: " + password );
 			User user = new User();
@@ -102,8 +87,8 @@ public class FakeDatabase implements IDatabase {
 			user.setUserEmail(email);
 			userList.add(user);
 			userID++;
+			return true;
 		}
-		return null;
 	}
 
 	
