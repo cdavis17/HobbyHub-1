@@ -73,11 +73,13 @@ public class HomeView extends Composite {
 	Button loginButton = new Button("LOGIN!");
 	loginButton.addClickHandler(new ClickHandler() {
 		public void onClick(ClickEvent event) {
+			System.out.println("GETTING READY TO START RPC CALL");
 			RPC.accountManagementService.verifyAccount(usernameBox.getText(), passwordBox.getText(), new AsyncCallback<Boolean>(){
 				@Override
 				public void onSuccess(Boolean result) {
 					if (result) {
 						// successful login
+						System.out.println("CHANGING TO NEW USERVIEW");
 						HobbyHubUI.setCurrentView(new UserView());							
 					} 
 					else{

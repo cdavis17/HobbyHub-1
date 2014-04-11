@@ -9,12 +9,11 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HTML;
 
 public class UserView extends Composite{
-	private LayoutPanel mainpanel;
 	
+	private AbsolutePanel absolutePanel;
 	public UserView(){
-		initWidget(mainpanel);
 		
-		AbsolutePanel absolutePanel = new AbsolutePanel();
+		absolutePanel = new AbsolutePanel();
 		initWidget(absolutePanel);
 		absolutePanel.setSize("559px", "417px");
 		
