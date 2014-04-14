@@ -1,21 +1,23 @@
 package edu.ycp.cs320.hobbyhub.client;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
 import edu.ycp.cs320.hobbyhub.server.controllers.AddAccountController;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
-public class HobbyHubSignUp implements EntryPoint {
+public class HobbyHubSignUp implements EntryPoint, IsWidget {
 
 	@Override
 	public void onModuleLoad() {
-		//stuf
+		//stuff
 		RootPanel panel = RootPanel.get("Sign Up Container");
 		
 		final TextBox UserNameField = new TextBox();
@@ -160,5 +162,11 @@ public class HobbyHubSignUp implements EntryPoint {
 		
 		
 		
+	}
+
+	@Override
+	public Widget asWidget() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

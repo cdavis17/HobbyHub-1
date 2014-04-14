@@ -53,7 +53,7 @@ public class HobbyHubWebApp implements EntryPoint {
 		RootPanel.get("nameFieldContainer").add(nameField);
 		RootPanel.get("signUpButtonContainer").add(signUpButton, 287, 53);
 
-		RootPanel rootPanel = RootPanel.get("nameFieldContainer");
+		final RootPanel rootPanel = RootPanel.get("nameFieldContainer");
 		rootPanel.add(nameField, 10, 10);
 		nameField.getElement().getStyle().setPosition(Position.RELATIVE);
 		//nameField.setSize("159px", "18px");
@@ -92,6 +92,8 @@ public class HobbyHubWebApp implements EntryPoint {
 				dialogBox.hide();
 				signUpButton.setEnabled(true);
 				signUpButton.setFocus(true);
+				rootPanel.remove(0);
+				rootPanel.get().add(new HobbyHubSignUp());
 			}
 		});
 
