@@ -10,4 +10,6 @@ public interface AccountManagementServiceAsync {
 	void createAccount(String username, String password, int userID,
 			String firstname, String lastname, String email, AsyncCallback<Boolean> callback);
 
+	void getUserID(String username, AsyncCallback<Integer> callback);
+
 }

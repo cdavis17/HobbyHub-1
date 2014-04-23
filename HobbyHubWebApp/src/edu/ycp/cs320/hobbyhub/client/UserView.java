@@ -1,16 +1,22 @@
 package edu.ycp.cs320.hobbyhub.client;
 
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.LayoutPanel;
+import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
 
-public class UserView extends Composite{
+
+public class UserView extends Composite {
 	
 	private AbsolutePanel absolutePanel;
+	private Hyperlink UserHobbiesLink;
+	@SuppressWarnings("deprecation")
 	public UserView(){
 		
 		absolutePanel = new AbsolutePanel();
@@ -31,6 +37,7 @@ public class UserView extends Composite{
 		Hyperlink HobbyLink = new Hyperlink("Hobbies", false, "newHistoryToken");
 		absolutePanel.add(HobbyLink, 295, 92);
 		
+		
 		Hyperlink AboutLink = new Hyperlink("About Us", false, "newHistoryToken");
 		absolutePanel.add(AboutLink, 370, 92);
 		
@@ -49,8 +56,8 @@ public class UserView extends Composite{
 		Hyperlink FriendsLink = new Hyperlink("Friends", false, "newHistoryToken");
 		absolutePanel.add(FriendsLink, 10, 240);
 		
-		Hyperlink UserHobbiesLink = new Hyperlink("My Hobbies", false, "newHistoryToken");
-		absolutePanel.add(UserHobbiesLink, 10, 264);
+		UserHobbiesLink = new Hyperlink("My Hobbies", false, "newHistoryToken");
+		absolutePanel.add(UserHobbiesLink, 10, 264);	
 		
 		HTML WelcomeHTML = new HTML("<div id='welcome'style='font-size: 150%;'> Welcome!</div>", true);
 		absolutePanel.add(WelcomeHTML, 110, 130);
@@ -59,7 +66,17 @@ public class UserView extends Composite{
 		absolutePanel.add(BodyHTML, 110, 154);
 		BodyHTML.setSize("439px", "253px");
 		
+		Button btnLogOut = new Button("Log Out!");
+		btnLogOut.addClickHandler(new ClickHandler() {
+			public void onClick(ClickEvent event) {
+			HobbyHubUI.instance.userID = 0;
+			System.out.println("Setting the user id back to " + HobbyHubUI.instance.userID);
+			HobbyHubUI.setCurrentView(new HomeView());
+			}
+		});
+		absolutePanel.add(btnLogOut, 412, 10);
+		btnLogOut.setSize("111px", "30px");
+		
 	
 	}
-
 }

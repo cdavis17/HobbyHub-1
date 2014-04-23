@@ -12,7 +12,7 @@ public class FakeDatabase implements IDatabase {
 		userList = new ArrayList<User>();
 		
 		// Create initial user
-		createAccount("jsmith","abc123", 1, "Joe", "Smith", "jsmith@jsmith.com");
+		createAccount("jsmith","abc123", userID, "Joe", "Smith", "jsmith@jsmith.com");
 		
 		// etc.
 		
@@ -69,6 +69,12 @@ public class FakeDatabase implements IDatabase {
 		return true;
 	}
 
+	@Override
+	public int getUserID(String username){
+		return getUser(username).getuserID();		
+	}
+	
+	
 	public boolean createAccount(String username, String password, int userID ,String firstname, String lastname, String email){
 		User existing = getUser(username);
 		

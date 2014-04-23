@@ -20,6 +20,14 @@ public class AccountManagementServiceImpl extends RemoteServiceServlet
 		System.out.println("Account for " + firstname + lastname + " is being created.  Username is " + username + " and password is " + password);
 		return DatabaseProvider.getInstance().createAccount(username, password, userID, firstname, lastname, email);
 	}
+
+	@Override
+	public int getUserID(String username) {
+		int ID = DatabaseProvider.getInstance().getUserID(username);
+		System.out.println("User ID for " + username + "is " + ID);
+		return DatabaseProvider.getInstance().getUserID(username);
+	
+	}
 		
 }
 

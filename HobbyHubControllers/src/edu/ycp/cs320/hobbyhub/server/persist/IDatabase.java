@@ -59,4 +59,6 @@ public interface IDatabase {
 	
 	public boolean createAccount(String username, String password, int userID ,String firstname, String lastname, String email);
 
+	public int getUserID(String username);
+
 }

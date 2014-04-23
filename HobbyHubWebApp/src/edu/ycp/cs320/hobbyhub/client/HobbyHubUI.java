@@ -11,6 +11,7 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 public class HobbyHubUI implements EntryPoint {
 
 	public static HobbyHubUI instance;
+	public int userID;
 	private static IsWidget currentView;
 	
 	@Override
@@ -21,6 +22,7 @@ public class HobbyHubUI implements EntryPoint {
 		
 		GWT.log("SETTING THE CURRENT VIEW");
 		setCurrentView(new HomeView());
+		userID = 0;
 	}
 		
 	public static void setCurrentView(IsWidget cv) {

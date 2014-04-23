@@ -12,10 +12,12 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
+import edu.ycp.cs320.hobbyhub.shared.User;
+
 public class HomeView extends Composite {
 	private LayoutPanel mainPanel;
-	
-	
+	//public int userID;
+		
 	public HomeView(){	
 		/**
 		 * 
@@ -73,13 +75,30 @@ public class HomeView extends Composite {
 	Button loginButton = new Button("LOGIN!");
 	loginButton.addClickHandler(new ClickHandler() {
 		public void onClick(ClickEvent event) {
-			System.out.println("GETTING READY TO START RPC CALL");
+			//System.out.println("GETTING READY TO START RPC CALL");
 			RPC.accountManagementService.verifyAccount(usernameBox.getText(), passwordBox.getText(), new AsyncCallback<Boolean>(){
 				@Override
 				public void onSuccess(Boolean result) {
 					if (result) {
-						// successful login
-						System.out.println("CHANGING TO NEW USERVIEW");
+						// successful login						
+						//System.out.println("CHANGING TO NEW USERVIEW");
+						RPC.accountManagementService.getUserID(usernameBox.getText(), new AsyncCallback<Integer>(){
+
+							@Override
+							public void onFailure(Throwable caught) {
+								// TODO Auto-generated method stub
+								GWT.log("RPC call to get User ID failed: " + caught.getMessage());
+								
+							}
+
+							@Override
+							public void onSuccess(Integer result) {
+								// TODO Auto-generated method stub
+								HobbyHubUI.instance.userID = result;
+								System.out.println("The userID is " + result);
+							}
+							
+						});
 						HobbyHubUI.setCurrentView(new UserView());							
 					} 
 					else{

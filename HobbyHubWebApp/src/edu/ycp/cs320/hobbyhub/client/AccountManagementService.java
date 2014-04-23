@@ -11,7 +11,8 @@ public interface AccountManagementService extends RemoteService{
 
 	boolean createAccount(String username, String password, int userID,
 			String firstname, String lastname, String email); 
-			
+	
+	public int getUserID(String username);
 
 	}
 
