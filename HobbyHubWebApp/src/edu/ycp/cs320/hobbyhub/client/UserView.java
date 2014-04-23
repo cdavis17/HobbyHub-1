@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
@@ -28,8 +29,17 @@ public class UserView extends Composite {
 		absolutePanel.add(Logo, 10, 10);
 		Logo.setSize("100px", "100px");
 		
-		Hyperlink HomeLink = new Hyperlink("Home", false, "newHistoryToken");
+		//Hyperlink HomeLink = new Hyperlink("Home", false, "newHistoryToken");
+		Button HomeLink = new Button("Home");
 		absolutePanel.add(HomeLink, 140, 92);
+		//HomeLink.
+		HomeLink.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				GWT.log("Switch to home view...");
+				
+			}
+		});
 		
 		Hyperlink ProfileLink = new Hyperlink("My Profile", false, "newHistoryToken");
 		absolutePanel.add(ProfileLink, 205, 92);
