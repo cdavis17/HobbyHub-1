@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 
 public class UserView extends Composite{
 	private LayoutPanel mainpanel;
@@ -16,7 +17,7 @@ public class UserView extends Composite{
 		
 		AbsolutePanel absolutePanel = new AbsolutePanel();
 		initWidget(absolutePanel);
-		absolutePanel.setSize("559px", "417px");
+		absolutePanel.setSize("586px", "455px");
 		
 		Image Logo = new Image();
 		Logo.setUrl("http://www.google.com/images/logo.gif");
@@ -54,11 +55,23 @@ public class UserView extends Composite{
 		absolutePanel.add(UserHobbiesLink, 10, 264);
 		
 		HTML WelcomeHTML = new HTML("<div id='welcome'style='font-size: 150%;'> Welcome!</div>", true);
-		absolutePanel.add(WelcomeHTML, 110, 130);
+		absolutePanel.add(WelcomeHTML, 127, 122);
 		
 		HTML BodyHTML = new HTML("<div id='welcome-body'style='font-size:110%;'>This is a test to see if it works.</div>", true);
-		absolutePanel.add(BodyHTML, 110, 154);
-		BodyHTML.setSize("439px", "253px");
+		absolutePanel.add(BodyHTML, 127, 154);
+		BodyHTML.setSize("422px", "253px");
+		
+		Label label = new Label(" ");
+		label.setStyleName("dialogVPanel");
+		label.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
+		label.setDirectionEstimator(true);
+		absolutePanel.add(label, 0, 112);
+		label.setSize("574px", "0px");
+		
+		Label label_1 = new Label(" ");
+		label_1.setStyleName("dialogVPanel");
+		absolutePanel.add(label_1, 116, 0);
+		label_1.setSize("0px", "443px");
 		
 	
 	}

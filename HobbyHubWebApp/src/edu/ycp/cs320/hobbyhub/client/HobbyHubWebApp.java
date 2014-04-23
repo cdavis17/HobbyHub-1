@@ -51,10 +51,10 @@ public class HobbyHubWebApp implements EntryPoint {
 		// Add the nameField and sendButton to the RootPanel
 		// Use RootPanel.get() to get the entire body element
 		RootPanel.get("nameFieldContainer").add(nameField);
-		RootPanel.get("signUpButtonContainer").add(signUpButton, 287, 53);
+		RootPanel.get("signUpButtonContainer").add(signUpButton, 24, 208);
 
 		final RootPanel rootPanel = RootPanel.get("nameFieldContainer");
-		rootPanel.add(nameField, 10, 10);
+		rootPanel.add(nameField, 136, 159);
 		nameField.getElement().getStyle().setPosition(Position.RELATIVE);
 		//nameField.setSize("159px", "18px");
 		rootPanel.add(signUpButton);
@@ -65,6 +65,9 @@ public class HobbyHubWebApp implements EntryPoint {
 		errorLabel.getElement().getStyle().setPosition(Position.RELATIVE);
 		// Focus the cursor on the name field when the app loads
 		nameField.setFocus(true);
+		
+		Label label = new Label("");
+		rootPanel.add(label, 185, 71);
 		nameField.selectAll();
 
 		// Create the popup dialog box
