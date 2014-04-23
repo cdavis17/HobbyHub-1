@@ -36,6 +36,9 @@ public class UserView extends Composite {
 		HomeLink.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
+				// Takes back to main userview
+				// if currentview is user view
+				// stay the same, else back to userview
 				GWT.log("Switch to home view...");
 				
 			}
