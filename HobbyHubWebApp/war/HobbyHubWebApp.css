@@ -18,10 +18,12 @@ h1 {
 /** Most GWT widgets already have a style name defined */
 .gwt-DialogBox {
   width: 400px;
+	font-size: 14px;
 }
 
 .dialogVPanel {
-  margin: 5px;
+	margin: 5px;
+	border: 1px solid Black;
 }
 
 .serverResponseLabelError {
