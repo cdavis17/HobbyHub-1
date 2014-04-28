@@ -1,6 +1,8 @@
 package edu.ycp.cs320.hobbyhub.shared;
 
-public class Hobby {
+import java.io.Serializable;
+
+public class Hobby implements Serializable {
 	private String name;
 	private String description;
 	

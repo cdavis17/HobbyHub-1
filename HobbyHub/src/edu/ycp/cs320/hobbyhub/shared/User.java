@@ -1,8 +1,13 @@
 package edu.ycp.cs320.hobbyhub.shared;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class User {
+public class User implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String userName;
 	private String locationCity;
 	private String locationState;
@@ -11,7 +16,7 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private ArrayList <Hobby> hobbies;
-	private ArrayList <Message> messages;
+	private Message messages;
 	private int userID;
 	
 	public User() {
@@ -102,17 +107,13 @@ public class User {
 	}
 	
 	// Setter and Getter for Message
-	public void setMessage(ArrayList<Message> message){
-		this.messages = message;
+	public void setMessage(Message m){
+		this.messages = m;
 	}
 	
-	public ArrayList<Message> getMessages(){
+	public Message getMessages(){
 		return messages;
 	}
 	
-	// Add Message
-	public void addMessage(Message message){
-		this.messages.add(message);
-	}
-	
+		
 }

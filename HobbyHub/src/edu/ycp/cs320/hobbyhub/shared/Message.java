@@ -1,6 +1,8 @@
 package edu.ycp.cs320.hobbyhub.shared;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
 	private User sender;
 	private User receiver;
 	private String subject;
@@ -48,7 +50,9 @@ public class Message {
 	public User getReciever(){
 		return this.receiver;
 	}
+
 	
+		
 	
 	
 }

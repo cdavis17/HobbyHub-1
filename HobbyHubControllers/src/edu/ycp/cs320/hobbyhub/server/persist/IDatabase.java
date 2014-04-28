@@ -17,7 +17,8 @@ public interface IDatabase {
 	 *         such username/password combination
 	 */
 	
-	public User getUser(String username);
+	public User getUser(int userID);
+	
 	
 	public User login(String username, String password);
 	
@@ -60,5 +61,9 @@ public interface IDatabase {
 	public boolean createAccount(String username, String password, int userID ,String firstname, String lastname, String email);
 
 	public int getUserID(String username);
+
+	public User getUser(String username);
+
+	
 
 }

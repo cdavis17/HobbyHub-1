@@ -3,26 +3,28 @@ package edu.ycp.cs320.hobbyhub.server.persist;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.ycp.cs320.hobbyhub.shared.Hobby;
+import edu.ycp.cs320.hobbyhub.shared.Message;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public class FakeDatabase implements IDatabase {
 	private List<User> userList; // list of USERS
 	private int userID = 1;  // sets index of userID
+	
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		
 		// Create initial user
 		createAccount("jsmith","abc123", userID, "Joe", "Smith", "jsmith@jsmith.com");
-		
-		// etc.
-		
+		System.out.println("initial account is being created");
+				
 		//userList.add(user1);
 	}
 	
 	@Override
-	public User getUser(String username){
-		for (User user : userList) {
-			if (user.getUserName().equals(username)){
+	public User getUser(String username) {
+		for(User user : userList){
+			if(user.getUserName().equals(username)){
 				return user;
 			}
 		}
@@ -96,6 +98,20 @@ public class FakeDatabase implements IDatabase {
 			return true;
 		}
 	}
+
+	@Override
+	public User getUser(int userID) {
+		for(User user : userList) {
+			if (user.getuserID() == (userID)){
+				return user;
+			}
+		}
+		return null;
+	}
+
+
+	
+
 
 	
 
