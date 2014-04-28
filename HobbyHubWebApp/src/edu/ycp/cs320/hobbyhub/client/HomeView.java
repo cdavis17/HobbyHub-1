@@ -34,12 +34,6 @@ public class HomeView extends Composite {
 	initWidget(mainPanel);	
 	mainPanel.setSize("780px", "543px");
 	
-	// Password TextBox
-	final PasswordTextBox passwordBox = new PasswordTextBox();
-	mainPanel.add(passwordBox);
-	mainPanel.setWidgetLeftWidth(passwordBox, 308.0, Unit.PX, 157.0, Unit.PX);
-	mainPanel.setWidgetTopHeight(passwordBox, 412.0, Unit.PX, 32.0, Unit.PX);
-	
 	// userName TextBox
 	final TextBox usernameBox = new TextBox();
 	usernameBox.setText("Enter username");
@@ -48,29 +42,11 @@ public class HomeView extends Composite {
 	mainPanel.setWidgetLeftWidth(usernameBox, 305.0, Unit.PX, 160.0, Unit.PX);
 	mainPanel.setWidgetTopHeight(usernameBox, 341.0, Unit.PX, 34.0, Unit.PX);
 	
-	// Label for Password
-	Label lblPassword = new Label("Password");
-	mainPanel.add(lblPassword);
-	mainPanel.setWidgetLeftWidth(lblPassword, 351.0, Unit.PX, 56.0, Unit.PX);
-	mainPanel.setWidgetTopHeight(lblPassword, 388.0, Unit.PX, 18.0, Unit.PX);
-	
-	// New CreateAccount Button
-	Button createAccountButton = new Button("New button");
-	createAccountButton.addClickHandler(new ClickHandler() {
-		public void onClick(ClickEvent event) {
-		HobbyHubUI.setCurrentView(new HobbyHubSignUp());
-		}
-	});
-	createAccountButton.setText("Create An Account");
-	mainPanel.add(createAccountButton);
-	mainPanel.setWidgetLeftWidth(createAccountButton, 578.0, Unit.PX, 190.0, Unit.PX);
-	mainPanel.setWidgetTopHeight(createAccountButton, 13.0, Unit.PX, 55.0, Unit.PX);
-	
-	// Description Label
-	Label lblNewLabel = new Label("We are here to help you connect with local users who share similar interests as you");
-	mainPanel.add(lblNewLabel);
-	mainPanel.setWidgetLeftWidth(lblNewLabel, 113.0, Unit.PX, 504.0, Unit.PX);
-	mainPanel.setWidgetTopHeight(lblNewLabel, 174.0, Unit.PX, 32.0, Unit.PX);
+	// Password TextBox
+	final PasswordTextBox passwordBox = new PasswordTextBox();
+	mainPanel.add(passwordBox);
+	mainPanel.setWidgetLeftWidth(passwordBox, 308.0, Unit.PX, 157.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(passwordBox, 412.0, Unit.PX, 32.0, Unit.PX);
 	
 	Button loginButton = new Button("LOGIN!");
 	loginButton.addClickHandler(new ClickHandler() {
@@ -121,6 +97,30 @@ public class HomeView extends Composite {
 	mainPanel.add(loginButton);
 	mainPanel.setWidgetLeftWidth(loginButton, 351.0, Unit.PX, 81.0, Unit.PX);
 	mainPanel.setWidgetTopHeight(loginButton, 463.0, Unit.PX, 30.0, Unit.PX);	
+	
+	// Label for Password
+	Label lblPassword = new Label("Password");
+	mainPanel.add(lblPassword);
+	mainPanel.setWidgetLeftWidth(lblPassword, 351.0, Unit.PX, 56.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(lblPassword, 388.0, Unit.PX, 18.0, Unit.PX);
+	
+	// New CreateAccount Button
+	Button createAccountButton = new Button("New button");
+	createAccountButton.addClickHandler(new ClickHandler() {
+		public void onClick(ClickEvent event) {
+		HobbyHubUI.setCurrentView(new HobbyHubSignUp());
+		}
+	});
+	createAccountButton.setText("Create An Account");
+	mainPanel.add(createAccountButton);
+	mainPanel.setWidgetLeftWidth(createAccountButton, 578.0, Unit.PX, 190.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(createAccountButton, 13.0, Unit.PX, 55.0, Unit.PX);
+	
+	// Description Label
+	Label lblNewLabel = new Label("We are here to help you connect with local users who share similar interests as you");
+	mainPanel.add(lblNewLabel);
+	mainPanel.setWidgetLeftWidth(lblNewLabel, 113.0, Unit.PX, 504.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(lblNewLabel, 174.0, Unit.PX, 32.0, Unit.PX);
 		
 	}
 }

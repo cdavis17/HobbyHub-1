@@ -34,3 +34,10 @@ h1 {
 #closeButton {
   margin: 15px 6px 6px;
 }
+.Header {
+	font-size: 14px;
+	font-style: normal;
+}
+.Border {
+	border: 2px solid Black;
+}
