@@ -1,5 +1,9 @@
 package edu.ycp.cs320.hobbyhub.server.persist;
 
+import java.util.ArrayList;
+
+import edu.ycp.cs320.hobbyhub.shared.Hobby;
+import edu.ycp.cs320.hobbyhub.shared.Message;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 /**
@@ -63,6 +67,12 @@ public interface IDatabase {
 	public int getUserID(String username);
 
 	public User getUser(String username);
+	
+	public void addMessage(User user, Message mes);
+
+	public ArrayList<Message> getMessages(User user);
+
+	public ArrayList<Hobby> getHobbies(User user);
 
 	
 

@@ -16,15 +16,13 @@ import edu.ycp.cs320.hobbyhub.shared.User;
 public class UserView extends Composite {
 	
 	private AbsolutePanel absolutePanel;
-<<<<<<< HEAD
-	private Hyperlink UserHobbiesLink;
+
+	//private Hyperlink UserHobbiesLink;
 	private String username;
 	private User user;
+	//private Button UserHobbiesLink;
+	//@SuppressWarnings("deprecation")
 	
-=======
-	private Button UserHobbiesLink;
-	@SuppressWarnings("deprecation")
->>>>>>> refs/remotes/Mfioravan/master
 	public UserView(){
 		
 		absolutePanel = new AbsolutePanel();
@@ -32,6 +30,9 @@ public class UserView extends Composite {
 		absolutePanel.setSize("559px", "417px");
 		
 		// Gets the user
+		// This is failing
+		System.out.println(HobbyHubUI.instance.userID);
+		
 		RPC.accountManagementService.getUser(HobbyHubUI.instance.userID, new AsyncCallback<User>(){
 			@Override
 			public void onSuccess(User result) {
@@ -46,7 +47,7 @@ public class UserView extends Composite {
 			}
 		
 			public void onFailure(Throwable caught) {
-				GWT.log("RPC call to get Acount failed: " + caught.getMessage());
+				GWT.log("RPC call to get Account failed: " + caught.getMessage());
 			}
 		});
 			
@@ -74,7 +75,7 @@ public class UserView extends Composite {
 			}
 		});
 		
-<<<<<<< HEAD
+
 		Button ProfileButton = new Button("My Profile");
 		absolutePanel.add(ProfileButton, 205, 92);
 		ProfileButton.addClickHandler(new ClickHandler() {
@@ -84,7 +85,7 @@ public class UserView extends Composite {
 				// if currentview is user view
 				// stay the same, else back to userview
 				GWT.log("Switch to profileview...");
-				HobbyHubUI.setCurrentView(new ProfileView());
+				HobbyHubUI.setCurrentView(new HomeView());
 				
 			}
 		});
@@ -100,18 +101,17 @@ public class UserView extends Composite {
 				
 			}
 		});
-=======
 		Button ProfileLink = new Button("New button");
 		ProfileLink.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				GWT.log("Switching to Profile View");
-				HobbyHubUI.setCurrentView(new ProfileView());
+				HobbyHubUI.setCurrentView(new HomeView());
 			}
 		});
 		ProfileLink.setStyleName("dialogVPanel");
 		ProfileLink.setText("My Profile");
-		absolutePanel.add(ProfileLink, 205, 92);
+		absolutePanel.add(ProfileLink, 197, 52);
 		
 		Button HobbyLink = new Button("New button");
 		HobbyLink.addClickHandler(new ClickHandler() {
@@ -121,7 +121,7 @@ public class UserView extends Composite {
 		});
 		HobbyLink.setStyleName("dialogVPanel");
 		HobbyLink.setText("Hobbies");
-		absolutePanel.add(HobbyLink, 295, 92);
+		absolutePanel.add(HobbyLink, 295, 52);
 		
 		
 		Button AboutLink = new Button("New button");
@@ -144,7 +144,7 @@ public class UserView extends Composite {
 				HobbyHubUI.setCurrentView(new MessageView());
 			}
 		});
-		absolutePanel.add(MessagesLink, 364, 92);
+		absolutePanel.add(MessagesLink, 372, 52);
 
 		Button MessagesLink1 = new Button("New button");
 		MessagesLink1.setStyleName("dialogVPanel");

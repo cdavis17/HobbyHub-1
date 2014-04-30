@@ -15,8 +15,8 @@ public class User implements Serializable {
     private String userEmail;
     private String firstName;
     private String lastName;
-    private ArrayList <Hobby> hobbies;
-    private ArrayList <Message> messages;
+    private ArrayList <Hobby> hobbies = new ArrayList<Hobby>();
+    private ArrayList <Message> messages = new ArrayList<Message>();
     private int userID;
     
     public User() {
@@ -111,6 +111,10 @@ public class User implements Serializable {
    	 this.hobbies.add(hobby);
     }
     
+   public void addMessageUser(Message message){
+    	messages.add(message);
+    }
+   	 
     
    	 
 }

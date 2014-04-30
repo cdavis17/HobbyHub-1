@@ -55,7 +55,7 @@ public class HobbyView extends Composite {
 		Button profileButton = new Button("New button");
 		profileButton.addClickHandler(new ClickHandler() {
 			public void onClick(ClickEvent event) {
-				HobbyHubUI.setCurrentView(new ProfileView());
+				HobbyHubUI.setCurrentView(new HomeView());
 			}
 		});
 		profileButton.setText("My Profile");

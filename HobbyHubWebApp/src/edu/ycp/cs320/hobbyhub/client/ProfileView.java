@@ -1,5 +1,5 @@
 package edu.ycp.cs320.hobbyhub.client;
-
+/*
 
 import com.google.gwt.dev.asm.Label;
 import com.google.gwt.dev.jjs.ast.JLabel;
@@ -67,7 +67,7 @@ public class ProfileView extends Composite{
 		aboutButton.setText("About Us");
 		mainPanel.add(aboutButton, 352, 80);
 		
-		JLabel TopBorder = new JLabel();
+		Label TopBorder = new Label();
 		TopBorder.setStyleName("dialogVPanel");
 		mainPanel.add(TopBorder, 0, 110);
 		TopBorder.setSize("737px", "0px");
@@ -184,3 +184,4 @@ public class ProfileView extends Composite{
 
 	}
 }
+*/

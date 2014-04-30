@@ -3,7 +3,11 @@ package edu.ycp.cs320.hobbyhub.shared;
 import java.io.Serializable;
 
 public class Message implements Serializable {
-    private User sender;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private User sender;
     private User receiver;
     private int sendID;
     private int recID;
@@ -11,11 +15,11 @@ public class Message implements Serializable {
     private String body;
     
     // Constructor
-    public Message(int receiverID, User receivingUser, int senderID, User sendingUser, String subjecttext, String bodytext){
+    public Message(int receiverID, int senderID, String subjecttext, String bodytext){
    	 recID = receiverID;
-   	 receiver = receivingUser;
+   	 //receiver = receivingUser;
    	 sendID = senderID;
-   	 sender = sendingUser;
+   	 //sender = sendingUser;
    	 subject = subjecttext;
    	 body = bodytext;
     }
@@ -67,7 +71,6 @@ public class Message implements Serializable {
     }
 
     
-   	 
     
     
 }

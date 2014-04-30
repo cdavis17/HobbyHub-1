@@ -52,6 +52,7 @@ public class MessageView extends Composite {
 		listBox.setVisibleItemCount(5);
 	
 		// Returns the current user signed in
+		
 		RPC.accountManagementService.getUser(HobbyHubUI.instance.userID, new AsyncCallback<User>(){
 			@Override
 			public void onSuccess(User result) {	
@@ -70,12 +71,13 @@ public class MessageView extends Composite {
 		 * Need to add the list of messages to a JCombobox, add compose button, if user clicks on message in ComboBox, display it larger, be able to reply
 		 * 
 		 */
-		// private ArrayList <Message> messages;
-		//for(int i = 0; i < user.getMessages().size();i++){
-			//listBox.addItem(user.getMessages().get(i).getSender().toString());
-			// prints the sender of the message to the console - test
-			//System.out.println(user.getMessages().get(i).getSender());
-		//}
+		// gets the messages a user has
+		ArrayList<Message> userMessages = user.getMessages();
+		for(int i = 0; i < userMessages.size();i++){
+			listBox.addItem(userMessages.get(i).getSender().toString());
+			//  prints the sender of the message to the console - test
+			System.out.println(userMessages.get(i).getSender());
+		}
 		
 	
 	

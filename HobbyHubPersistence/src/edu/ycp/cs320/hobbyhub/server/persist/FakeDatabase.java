@@ -10,14 +10,18 @@ import edu.ycp.cs320.hobbyhub.shared.User;
 public class FakeDatabase implements IDatabase {
 	private List<User> userList; // list of USERS
 	private int userID = 1;  // sets index of userID
-	
+	private Message mess = new Message(1,1,"Meeting", "We need to meet to discuss something important");
+	private Message mess1 = new Message(1,1, "Business", "We should be able to view this message");
+	private String userna = new String("jsmith");
 	public FakeDatabase() {
 		userList = new ArrayList<User>();
 		
 		// Create initial user
 		createAccount("jsmith","abc123", userID, "Joe", "Smith", "jsmith@jsmith.com");
 		System.out.println("initial account is being created");
-				
+		addMessage(getUser(userna), mess);
+		System.out.println("message is being added to " + userna + "'s account");
+		addMessage(getUser(userna), mess1);
 		//userList.add(user1);
 	}
 	
@@ -25,6 +29,16 @@ public class FakeDatabase implements IDatabase {
 	public User getUser(String username) {
 		for(User user : userList){
 			if(user.getUserName().equals(username)){
+				return user;
+			}
+		}
+		return null;
+	}
+	
+	@Override
+	public User getUser(int userID) {
+		for(User user : userList) {
+			if (user.getuserID() == (userID)){
 				return user;
 			}
 		}
@@ -99,14 +113,29 @@ public class FakeDatabase implements IDatabase {
 		}
 	}
 
+	
+
+	
+	
 	@Override
-	public User getUser(int userID) {
-		for(User user : userList) {
-			if (user.getuserID() == (userID)){
-				return user;
-			}
-		}
-		return null;
+	public ArrayList<Message> getMessages(User user){
+		return user.getMessages();
+	}
+	
+	@Override
+	public void addMessage(User user1, Message mess) {
+		//ArrayList<Message> updated = user1.getMessages();
+		user1.addMessageUser(mess);
+		//user1.setMessages(updated);
+	}
+	
+	public void addHobby(User user, Hobby hobby){
+		//user.getHobbies().add(hobby);
+	}
+	
+	@Override
+	public ArrayList<Hobby> getHobbies(User user){
+		return user.getHobbies();
 	}
 
 
