@@ -14,7 +14,7 @@ public class MessageTest {
 	
 	@Before
 	public void setup(){
-		tester = new Message();
+		//tester = new Message();
 		bodyText = "This is the body of the message.";
 		sender = new User();
 		receiver = new User();
