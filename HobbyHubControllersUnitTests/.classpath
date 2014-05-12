@@ -6,5 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/HobbyHub"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/HobbyHubControllers"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/HobbyHubPersistence"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/gwt-2.5.1"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

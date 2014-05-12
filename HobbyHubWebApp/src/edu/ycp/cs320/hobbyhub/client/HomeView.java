@@ -12,13 +12,13 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 
-import edu.ycp.cs320.hobbyhub.shared.User;
 
-public class HomeView extends Composite {
+public class HomeView extends Composite{
 	private LayoutPanel mainPanel;
 	//public int userID;
 	private PasswordTextBox passwordBox;
 	private TextBox usernameBox;
+
 		
 	public HomeView(){	
 		/**
@@ -33,7 +33,7 @@ public class HomeView extends Composite {
 		 */
 	
 	mainPanel = new LayoutPanel();
-	initWidget(mainPanel);	
+	initWidget(mainPanel);
 	mainPanel.setSize("780px", "543px");
 
 	// Password TextBox
@@ -43,8 +43,11 @@ public class HomeView extends Composite {
 	mainPanel.setWidgetTopHeight(passwordBox, 412.0, Unit.PX, 32.0, Unit.PX);
 	
 	// userName TextBox
+
 	this.usernameBox = new TextBox();
 	usernameBox.setText("Enter username");
+
+	final TextBox usernameBox = new TextBox();
 	usernameBox.setName("Username");
 	mainPanel.add(usernameBox);
 	mainPanel.setWidgetLeftWidth(usernameBox, 305.0, Unit.PX, 160.0, Unit.PX);
@@ -83,6 +86,7 @@ public class HomeView extends Composite {
 							}
 							
 						});
+						mainPanel.clear();
 						HobbyHubUI.setCurrentView(new UserView());							
 					} 
 					else{
@@ -108,9 +112,9 @@ public class HomeView extends Composite {
 	mainPanel.setWidgetTopHeight(loginButton, 463.0, Unit.PX, 30.0, Unit.PX);	
 	
 	// Label for Password
-	Label lblPassword = new Label("Password");
+	Label lblPassword = new Label("Enter Password:");
 	mainPanel.add(lblPassword);
-	mainPanel.setWidgetLeftWidth(lblPassword, 351.0, Unit.PX, 56.0, Unit.PX);
+	mainPanel.setWidgetLeftWidth(lblPassword, 331.0, Unit.PX, 114.0, Unit.PX);
 	mainPanel.setWidgetTopHeight(lblPassword, 388.0, Unit.PX, 18.0, Unit.PX);
 	
 	// New CreateAccount Button
@@ -128,8 +132,13 @@ public class HomeView extends Composite {
 	// Description Label
 	Label lblNewLabel = new Label("We are here to help you connect with local users who share similar interests as you");
 	mainPanel.add(lblNewLabel);
-	mainPanel.setWidgetLeftWidth(lblNewLabel, 113.0, Unit.PX, 504.0, Unit.PX);
-	mainPanel.setWidgetTopHeight(lblNewLabel, 174.0, Unit.PX, 32.0, Unit.PX);
+	mainPanel.setWidgetLeftWidth(lblNewLabel, 141.0, Unit.PX, 504.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(lblNewLabel, 216.0, Unit.PX, 32.0, Unit.PX);
+	
+	Label lblEnterUsername = new Label("Enter Username:");
+	mainPanel.add(lblEnterUsername);
+	mainPanel.setWidgetLeftWidth(lblEnterUsername, 331.0, Unit.PX, 114.0, Unit.PX);
+	mainPanel.setWidgetTopHeight(lblEnterUsername, 317.0, Unit.PX, 18.0, Unit.PX);
 		
 	}
 }

@@ -1,15 +1,14 @@
 package edu.ycp.cs320.hobbyhub.server.controllers;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
 import edu.ycp.cs320.hobbyhub.server.persist.DatabaseProvider;
 import edu.ycp.cs320.hobbyhub.server.persist.FakeDatabase;
-import edu.ycp.cs320.hobbyhub.shared.User;
+
 
 public class CheckExistanceControllerTest {
 	CheckExistenceController controller = new CheckExistenceController();

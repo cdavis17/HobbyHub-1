@@ -2,10 +2,8 @@ package edu.ycp.cs320.hobbyhub.shared;
 
 import java.io.Serializable;
 
-public class Message implements Serializable {
-    /**
-	 * 
-	 */
+public class Message implements Serializable{
+
 	//private static final long serialVersionUID = 1L;
 	private User sender;
     private User receiver;
@@ -20,12 +18,12 @@ public class Message implements Serializable {
     
     // Constructor
     public Message(int receiverID, int senderID, String subjecttext, String bodytext){
-   	 recID = receiverID;
-   	 //receiver = receivingUser;
-   	 sendID = senderID;
-   	 //sender = sendingUser;
-   	 subject = subjecttext;
-   	 body = bodytext;
+    	recID = receiverID;
+   	 	//receiver = receivingUser;
+   	 	sendID = senderID;
+   	 	//sender = sendingUser;
+   	 	subject = subjecttext;
+   	 	body = bodytext;
     }
     
     // dont need setter methods

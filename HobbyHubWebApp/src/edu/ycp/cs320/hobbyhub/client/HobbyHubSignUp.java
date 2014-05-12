@@ -16,7 +16,7 @@ import com.google.gwt.event.dom.client.ClickEvent;
 
 
 //import edu.ycp.cs320.hobbyhub.server.controllers.AddAccountController;
-import edu.ycp.cs320.hobbyhub.shared.User;
+
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.Unit;
@@ -24,7 +24,7 @@ import com.google.gwt.user.client.ui.PasswordTextBox;
 
 public class HobbyHubSignUp extends Composite {
 	private LayoutPanel mainPanel;
-	private LayoutPanel infomationPanel;
+
 	private int userID = 2;
 	
 	/**
@@ -190,73 +190,10 @@ public class HobbyHubSignUp extends Composite {
 				HobbyHubUI.setCurrentView(new UserView());
 			}
 			});
-				//User newAccount = new User();
-				//boolean error = false;
-				
-				/*
-				//Add User Name
-				if (UserNameField.getText() != null){
-					newAccount.setUserName(UserNameField.getText());
-					UserNameError.setVisible(false);
-				} else {
-					UserNameError.setVisible(true);
-					error = true;
-				}
-				
-				//Add Password
-				if (PasswordField.getText() != null && PasswordConfirm.getText() != null){
-					EmptyPassError.setVisible(false);
-					if(PasswordField.getText().equals(PasswordConfirm.getText())){
-						newAccount.setPassword(PasswordField.getText());
-					} else {
-						NonMatchError.setVisible(true);
-						error = true;
-					}
-				} else {
-					EmptyPassError.setVisible(true);
-					error = true;
-				}
-				
-				//City
-				if (CityField.getText() != null){
-					newAccount.setLocationCity(CityField.getText());
-				}
-				
-				//State
-				if (StateField.getText() != null){
-					newAccount.setLocationState(StateField.getText());
-				}
-				
-				//First Name
-				if (FirstNameField.getText() != null){
-					newAccount.setFirstName(FirstNameField.getText());
-				}
-				
-				//Last Name
-				if (LastNameField.getText() != null){
-					newAccount.setLastName(LastNameField.getText());
-				}
-				
-				//Email
-				if (EmailField.getText() != null){
-					newAccount.setUserEmail(EmailField.getText());
-					EmailError.setVisible(false);
-				} else {
-					EmailError.setVisible(true);
-					error = true;
-				}
-				
-				//Add Account to db
-				if (error == false){
-					//AddAccountController controller = new AddAccountController();
-					//controller.addAccount(newAccount);
-				}
-				*/
-
-			
+		
 		
 		SignUpButton.setText("Sign Up");
-		//mainPanel.add(SignUpButton);
+
 		
 				
 		
