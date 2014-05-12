@@ -2,6 +2,7 @@ package edu.ycp.cs320.hobbyhub.client;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 
+import edu.ycp.cs320.hobbyhub.shared.Message;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 public interface AccountManagementServiceAsync {
@@ -15,5 +16,7 @@ public interface AccountManagementServiceAsync {
 	void getUserID(String username, AsyncCallback<Integer> callback);
 
 	void getUser(int userID, AsyncCallback<User> callback);
+
+	void addMessage(int userID, Message mes, AsyncCallback<Boolean> callback);
 
 }

@@ -3,6 +3,7 @@ package edu.ycp.cs320.hobbyhub.server;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import edu.ycp.cs320.hobbyhub.server.persist.DatabaseProvider;
+import edu.ycp.cs320.hobbyhub.shared.Message;
 import edu.ycp.cs320.hobbyhub.shared.User;
 import edu.ycp.cs320.hobbyhub.client.AccountManagementService;
 
@@ -33,6 +34,12 @@ public class AccountManagementServiceImpl extends RemoteServiceServlet
 	@Override
 	public User getUser(int userID) {
 		return DatabaseProvider.getInstance().getUser(userID);
+	}
+
+	@Override
+	public boolean addMessage(int userID, Message mes) {
+		return DatabaseProvider.getInstance().addMessage(userID, mes);
+		
 	}
 		
 }

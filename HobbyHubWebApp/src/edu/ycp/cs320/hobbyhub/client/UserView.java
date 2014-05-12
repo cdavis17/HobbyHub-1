@@ -38,13 +38,7 @@ public class UserView extends Composite {
 			public void onSuccess(User result) {
 				System.out.println("Successful");	
 				user = result;	
-				username = user.getFirstName();
-				 // LABEL TO DISPLAY USERS NAME
-				Label UsernameLabel = new Label(username);
-				System.out.println(username);
-				absolutePanel.add(UsernameLabel, 50, 50);
-				UsernameLabel.setSize("200px", "30px");
-			}
+			}			
 		
 			public void onFailure(Throwable caught) {
 				GWT.log("RPC call to get Account failed: " + caught.getMessage());

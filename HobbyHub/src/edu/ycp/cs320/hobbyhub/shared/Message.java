@@ -6,13 +6,17 @@ public class Message implements Serializable {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	private User sender;
     private User receiver;
     private int sendID;
     private int recID;
     private String subject;
     private String body;
+    
+    public Message() {
+    	
+    }
     
     // Constructor
     public Message(int receiverID, int senderID, String subjecttext, String bodytext){

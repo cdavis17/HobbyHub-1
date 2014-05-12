@@ -68,7 +68,7 @@ public interface IDatabase {
 
 	public User getUser(String username);
 	
-	public void addMessage(User user, Message mes);
+	public boolean addMessage(int userID, Message mes);
 
 	public ArrayList<Message> getMessages(User user);
 

@@ -3,6 +3,7 @@ package edu.ycp.cs320.hobbyhub.client;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 
+import edu.ycp.cs320.hobbyhub.shared.Message;
 import edu.ycp.cs320.hobbyhub.shared.User;
 
 @RemoteServiceRelativePath("accountManagement")
@@ -15,7 +16,10 @@ public interface AccountManagementService extends RemoteService{
 			String firstname, String lastname, String email); 
 	
 	public int getUserID(String username);
+	
 	public User getUser(int userID);
+	
+	boolean addMessage(int userID, Message mes);
 
 	}
 
